@@ -1,12 +1,25 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="myApp">
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
 </head>
 <body>
+<!-- ng-model层 -->
 	<input type="text"  ng-model="hello.text" >
 	<h1>{{hello.text}}  world</h1>
+<!-- directive指令 -->
+	<hello></hello>
 </body>
 	<script src="js/angular.js"></script>
+	<script type="text/javascript">
+	var myModule = angular.module("myApp",[]);
+	myModule.directive('hello',function(){
+		return {
+			restrict: 'E',
+			template: '<div>hello girl</div>',
+			replace: true
+		}
+	});
+	</script>
 </html>
