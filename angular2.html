@@ -5,7 +5,10 @@
 	<title>Document</title>
 </head>
 <body>
-{{name}}
+<div>{{name}}</div>
+<div ng-controller='MyController'>
+	{{person.hello}}
+</div>
 </body>
 	<script src="js/angular.js"></script>
 	<script type="text/javascript">
@@ -13,5 +16,10 @@
 	app.run(function($rootScope){
 		$rootScope.name = 'lihao';
 	})
+	app.controller('MyController',function($scope){
+		$scope.person = {
+			hello: "hello world"
+		};
+	});
 	</script>
 </html>
