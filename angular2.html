@@ -12,7 +12,7 @@
 <div ng-controller="ParentController"> 
   <div ng-controller="ChildController"> 
     <input type="text" ng-model="person.name" placeholder="Name"></input> 
-    <a ng-click="sayHello()">Say hello</a> 
+    <a ng-click="sayHello()">点击</a> 
   </div> 
   {{ person }} 
 </div>
@@ -35,6 +35,7 @@
 	app.controller('ChildController', function($scope) { 
 	  $scope.sayHello = function() { 
 	    $scope.person.greeted = true; 
+	    alert('true');
 	  } 
 	}); 
 	</script>
