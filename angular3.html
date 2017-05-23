@@ -11,9 +11,25 @@
 	 </div> <div ng-hide="shouldShow"> 
 	   <h3>消失:{{shouldShow}}</h3> 
 	 </div> 
+
+	 <div ng-controller='MyController'>
+		 <ul> 
+	   		<li ng-repeat="person in roommates">{{ person.name }}</li>
+	   	 </ul> 
+	 </div>
+
 	<script src="js/angular.js"></script>
 	<script type="text/javascript">
-
+		var app = angular.module('myApp',[]);
+		app.controller('MyController',function($scope){
+			$scope.roommates = [ 
+		   { name: 'Ari'}, 
+		   { name: 'Q'}, 
+		   { name: 'Sean'}, 
+		   { name: 'Anand'} 
+		 ]; 
+		});
+		
 	</script>
 </body>
 </html>
