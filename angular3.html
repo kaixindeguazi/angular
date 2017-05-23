@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	 <button ng-init="shouldShow = true" ng-click="shouldShow = !shouldShow">切换</button> 
+	 <div ng-show="shouldShow"> 
+	   <h3>出现:{{shouldShow}}</h3> 
+	 </div> <div ng-hide="shouldShow"> 
+	   <h3>消失:{{shouldShow}}</h3> 
+	 </div> 
+	<script src="js/angular.js"></script>
+	<script type="text/javascript">
+
+	</script>
+</body>
+</html>
