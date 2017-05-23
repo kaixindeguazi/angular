@@ -16,6 +16,12 @@
   </div> 
   {{ person }} 
 </div>
+
+<div ng-controller="PlayerController"> 
+  <button ng-click="play()" class="button" ng-show="!playing">Play</button> 
+  <button ng-click="stop()" class="button alert" ng-show="playing">Stop</button> 
+  Playing audio: <b>{{ playing }}</b> 
+</div>
 </body>
 	<script src="js/angular.js"></script>
 	<script type="text/javascript">
@@ -37,6 +43,29 @@
 	    $scope.person.greeted = true; 
 	    alert('true');
 	  } 
-	}); 
+	});
+
+	app.controller('PlayerController',['$scope',function($scope){
+		$scope.playing = false;
+		$scope.audio = document.createElement('audio');
+		$scope.audio.src = 'zzz.mp3';
+		$scope.play = function() { 
+		    $scope.audio.play(); 
+		    $scope.playing = true; 
+  		}; 
+	  	$scope.stop = function() { 
+		    $scope.audio.pause(); 
+		    $scope.playing = false; 
+	  	}; 
+	  	$scope.audio.addEventListener('ended', function() { 
+		    $scope.$apply(function() { 
+		      $scope.stop() 
+		    }); 
+	  	}); 
+	}]);
+
+	app.contr0ller('RelatedController',['$scope',function($scope){
+
+	}]);
 	</script>
 </html>
