@@ -89,6 +89,6 @@
 	  $scope.subtract = function(amount) { $scope.counter -= amount; }; 
 	}); 
 
-	$http({  method: 'JSONP',  url: 'http://api.openbeerdatabase.com/v1/beers.json?callback=JSON_CALLBACK'}).success(function(data, status, headers, config) {  console.log('success'); }).error(function(data, status, headers, config) {console.log('error!');}); 
+	// $http({  method: 'JSONP',  url: 'http://api.openbeerdatabase.com/v1/beers.json?callback=JSON_CALLBACK'}).success(function(data, status, headers, config) {  console.log('success'); }).error(function(data, status, headers, config) {console.log('error!');}); 
 	</script>
 </html>
