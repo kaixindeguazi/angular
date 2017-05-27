@@ -18,3 +18,6 @@ app.controller('WorldController',['$scope',function($scope){
 		console.log($scope.user);
 	}	
 }])
+
+//angular 基本不用操作DOM，如果必要，可以使用angular提供的jqlite
+//angular.element('#div');
