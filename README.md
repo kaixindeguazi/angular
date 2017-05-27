@@ -13,7 +13,7 @@ app.controller('WorldController',['$scope',function($scope){
 	};
 
 	//行为数据
-	$scope.login = function{
+	$scope.login = function(){
 		//因为数据的变化是双向同步，所以界面上的值会同步到$scope.user上
 		console.log($scope.user);
 	}	

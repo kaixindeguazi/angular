@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	 <table ng-controller="WorldController" border="1">
+	 	<tr>
+	 		<td>用户名：</td>
+	 		<td><input type="text" ng-model="user.username" ></td>
+	 	</tr>
+	 	<tr>
+	 		<td>密码：</td>
+	 		<td><input type="password" ng-model="user.password" ></td>
+	 	</tr>
+	 	<tr>
+	 		<td></td>
+	 		<td><input type="button" ng-click="login()" value="登录"></td>
+	 	</tr>
+	 	<tr>
+	 		<td></td>
+	 		<td>{{message}}</td>
+	 	</tr>
+	 </table>
+
+	<script src="js/angular.js"></script>
+	<script type="text/javascript">
+		var app = angular.module('myApp',[]);
+		app.controller('WorldController',['$scope',function($scope){
+			//数据
+			$scope.user = {
+				username: '',
+				password: ''
+			};
+
+			$scope.message = '请输入用户名!';
+
+			$scope.$watch('user.username',function(now,old){
+				// console.log(now);
+				// console.log(old);
+				if(now){
+					if(now.length < 6){
+						$scope.message = '用户名不能小于6!';
+					}else{
+						$scope.message = '';
+					}
+				}else{
+					$scope.message = '请输入用户名!';
+				}
+			})
+
+			//行为数据
+			$scope.login = function(){
+				//因为数据的变化是双向同步，所以界面上的值会同步到$scope.user上
+				console.log($scope.user);
+			}	
+		}]);
+		
+	</script>
+</body>
+</html>
