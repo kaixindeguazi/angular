@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>表达式</title>
+	<style type="text/css">
+		[ng-cloak],.ng-cloak{
+			display: none;
+		}
+	</style>
+</head>
+<body ng-cloak class="ng-cloak">
+	<h3>ng-cloak就是在ng执行完毕后自动移除</h3>
+	{{'hello '+'world'}}
+	<script src="js/angular.js"></script>
+	<script type="text/javascript">
+		var app = angular.module('myApp',[]);
+		app.controller('WorldController',['$scope',function($scope){
+
+		}]);
+		
+	</script>
+</body>
+</html>
