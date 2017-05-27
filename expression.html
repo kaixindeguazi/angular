@@ -11,7 +11,11 @@
 </head>
 <body ng-cloak class="ng-cloak">
 	<h3>ng-cloak就是在ng执行完毕后自动移除</h3>
-	{{'hello '+'world'}}
+	<div>{{'hello '+'world'}}</div>
+	<div>输入：<input type="text" ng-model="hello"></div>
+	<div>{{ hello.length > 5 ? '长度大于5了':'长度小于5' }}</div>
+	<div>{{ '长度：'+hello.length+'，内容：'+hello }}</div>
+	<div>{{ '后三个字符为：'+hello.substring(hello.length-3,hello.length)}}</div>
 	<script src="js/angular.js"></script>
 	<script type="text/javascript">
 		var app = angular.module('myApp',[]);
