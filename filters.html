@@ -2,18 +2,27 @@
 <html lang="en" ng-app="myApp">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>filter</title>
 </head>
 <body>
+	<div ng-controller="nameCtrl">
+		<p><input type="text" ng-model="test"></p>
+		<ul>
+			<li ng-repeat="x in names | filter:test | orderBy:'country'">
+				{{(x.name | uppercase) + ',' + x.country}}
+			</li>
+		</ul>
+	</div>
+	<script src="js/angular.js"></script>
 	<script type="text/javascript">
-		
-		var href = 'https://www.facebook.com:8080/aaa/2.html?id=10#hoh';
-		var a = document.createElement('a');
-		a.href = href;
-		console.log(a.hash);
-		console.log(a.search);
-		console.log(a.hostname);
-		console.log(a.port);
+		var app = angular.module('myApp',[]);
+		app.controller('nameCtrl',['$scope',function($scope){
+			$scope.names = [
+				{name:'Jani',country:'Norway'},
+        		{name:'Hege',country:'Sweden'},
+        		{name:'Kai',country:'Denmark'}
+			];
+		}])
 	</script>
 </body>
 </html>
