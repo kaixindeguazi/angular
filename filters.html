@@ -12,6 +12,9 @@
 				{{(x.name | uppercase) + ',' + x.country}}
 			</li>
 		</ul>
+		<div>
+			{{ hello | reverse}}
+		</div>
 	</div>
 	<script src="js/angular.js"></script>
 	<script type="text/javascript">
@@ -19,10 +22,16 @@
 		app.controller('nameCtrl',['$scope',function($scope){
 			$scope.names = [
 				{name:'Jani',country:'Norway'},
-        		{name:'Hege',country:'Sweden'},
-        		{name:'Kai',country:'Denmark'}
+	    		{name:'Hege',country:'Sweden'},
+	    		{name:'Kai',country:'Denmark'}
 			];
+			$scope.hello = "hello world";
 		}])
+		app.filter('reverse',function(){
+				return function(text){
+					return text.split("").reverse().join("");
+				}
+			});
 	</script>
 </body>
 </html>
