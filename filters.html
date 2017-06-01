@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		var href = 'https://www.facebook.com:8080/aaa/2.html?id=10#hoh';
+		var a = document.createElement('a');
+		a.href = href;
+		console.log(a.hash);
+		console.log(a.search);
+		console.log(a.hostname);
+		console.log(a.port);
+	</script>
+</body>
+</html>
