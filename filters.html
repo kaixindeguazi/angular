@@ -14,6 +14,54 @@
 		</ul>
 		<div>
 			{{ hello | reverse}}
+			<!-- 自定义filter，字符串反转 -->
+		</div>
+		<div>
+			{{ hello | uppercase }}
+			<!-- angular自带过滤器，将字符串大写，小写则是lowercase --> 
+		</div>
+		<div>
+			{{1490161945000 | date:"yyyy-MM-dd HH:mm:ss"}}
+			<!-- 转换成日期 -->
+		</div>
+		<div>
+			{{149016.1945000 | number:2}}
+			<!-- 数字格式化 -->
+		</div>
+		<div>
+			{{ 250 | currency }}  
+			{{ 250 | currency:"RMB ￥ " }}
+			<!-- 货币格式化 -->
+		</div>
+		<div>
+			{{ [{"age": 20,"id": 10,"name": "iphone"},
+{"age": 12,"id": 11,"name": "sunm xing"},
+{"age": 44,"id": 12,"name": "test abc"}
+] | filter:{'name':'iphone'} }}
+			<!-- filter 过滤器从数组中选择一个子集 -->
+		</div>
+		<div>
+			{{"1234567890" | limitTo :6}} 
+			<!-- 从前面开始截取6位 -->
+			{{"1234567890" | limitTo:-4}} 
+			<!-- 从后面开始截取4位 -->
+		</div>
+		<div>
+			<!-- 根据id降序排 -->
+			{{ [{"age": 20,"id": 10,"name": "iphone"},
+			{"age": 12,"id": 11,"name": "sunm xing"},
+			{"age": 44,"id": 12,"name": "test abc"}
+			] | orderBy:'id':true }}
+
+		</div>
+		<div>
+
+			<!-- 根据id升序排 -->
+			{{ [{"age": 20,"id": 10,"name": "iphone"},
+			{"age": 12,"id": 11,"name": "sunm xing"},
+			{"age": 44,"id": 12,"name": "test abc"}
+			] | orderBy:'id' }}
+			
 		</div>
 	</div>
 	<script src="js/angular.js"></script>
