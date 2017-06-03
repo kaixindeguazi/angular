@@ -2,14 +2,17 @@
 <html lang="en" ng-app="myApp">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>Service</title>
 </head>
 <body>
 	<div ng-controller="myCtrl">
-		{{myUrl}}
+		<h2>{{myUrl}}</h2>
 	</div>
 	<div ng-controller="http">
-		{{myWelcome}}
+		<h2>{{myWelcome}}</h2>
+	</div>
+	<div ng-controller="timeout">
+		<h2>{{myHeader}}</h2>
 	</div>
 </body>
 	<script src="js/angular.js"></script>
@@ -22,6 +25,12 @@
 	  $http.get("welcome.html").then(function (response) {
 	      $scope.myWelcome = response.data;
 	  });
+	});
+	app.controller('timeout', function($scope, $timeout) {
+    $scope.myHeader = "Hello World!";
+	    $timeout(function () {
+	        $scope.myHeader = "cherish your life,and hug your tomorrow!";
+	    }, 2000);
 	});
 	</script>
 </html>
