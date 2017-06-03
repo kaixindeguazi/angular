@@ -14,6 +14,9 @@
 	<div ng-controller="timeout">
 		<h2>{{myHeader}}</h2>
 	</div>
+	<div ng-controller="interval">
+		<h2>{{interval}}</h2>
+	</div>
 </body>
 	<script src="js/angular.js"></script>
 	<script type="text/javascript">
@@ -27,10 +30,16 @@
 	  });
 	});
 	app.controller('timeout', function($scope, $timeout) {
-    $scope.myHeader = "Hello World!";
+    	$scope.myHeader = "Hello World!";
 	    $timeout(function () {
 	        $scope.myHeader = "cherish your life,and hug your tomorrow!";
-	    }, 2000);
+	    }, 1000);
 	});
+	app.controller('interval', function($scope,$interval){
+		$scope.interval = new Date().toLocaleTimeString();
+		$interval(function(){
+			$scope.interval = new Date().toLocaleTimeString();
+		}, 1000);
+	})
 	</script>
 </html>
