@@ -8,12 +8,20 @@
 	<div ng-controller="myCtrl">
 		{{myUrl}}
 	</div>
+	<div ng-controller="http">
+		{{myWelcome}}
+	</div>
 </body>
 	<script src="js/angular.js"></script>
 	<script type="text/javascript">
 	var app = angular.module("myApp",[]);
 	app.controller('myCtrl',function($scope,$location){
 		$scope.myUrl = $location.absUrl();
-	})
+	});
+	app.controller('http', function($scope, $http) {
+	  $http.get("welcome.html").then(function (response) {
+	      $scope.myWelcome = response.data;
+	  });
+	});
 	</script>
 </html>
