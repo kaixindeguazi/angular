@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Service</title>
+</head>
+<body>
+	<div ng-controller="myCtrl">
+		<h2>{{myUrl}}</h2>
+		<h2 ng-repeat="x in counts">{{x | f_zhuan}}</h2>
+	</div>
+</body>
+	<script src="js/angular.js"></script>
+	<script type="text/javascript">
+	var app = angular.module("myApp",[]);
+	app.controller('myCtrl',function($scope,zhuan){
+		$scope.myUrl = zhuan.my(251524);
+		$scope.counts = [25523, 25143, 20021];
+	});
+	app.service('zhuan', function(){
+		this.my = function(x) {
+			return x.toString(16);
+		}
+	});
+	app.filter('f_zhuan', function(zhuan){
+		return function(x){
+			return zhuan.my(x);
+		}
+	})
+	</script>
+</html>
