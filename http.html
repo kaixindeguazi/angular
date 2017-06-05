@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Service</title>
+</head>
+<body>
+	<div ng-controller="site">
+		<h2 ng-repeat="x in names">{{x.name+'     '+x.age}}</h2>
+	</div>
+</body>
+	<script src="js/angular.js"></script>
+	<script type="text/javascript">
+	var app = angular.module("myApp",[]);
+	app.controller('site',function($scope,$http){
+		$http({
+			method: 'GET',
+			url: 'http://www.lhao.xin/site.php'
+		}).then(function success(response){
+			$scope.names = response.data;
+		},function error(response){
+			//请求失败代码
+		});
+	})
+	</script>
+</html>
