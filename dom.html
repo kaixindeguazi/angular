@@ -12,8 +12,8 @@
 		<p>{{myswitch}}</p>
 
 		<!-- 	ng-show , ng-hide 指令 -->
-		<button ng-click="num = num + 1">加一</button>
-		<p>{{num}}</p>
+		<button ng-click="add()">加 1  </button>
+		<p>num:{{num}}</p>
 		<div style="float: left;">
 			<p ng-show="num>4">大于4可见</p>
 			<p ng-show="num>5">大于5可见</p>
@@ -40,6 +40,18 @@
 	app.controller('hao',function($scope,$http){
 		$scope.myswitch = true;
 		$scope.num = 5;
+		$scope.true = true;
+		$scope.add = function(){
+			if($scope.num == 10 || $scope.num == 4){
+				$scope.true = !$scope.true;
+			}
+			if($scope.true == true){
+				$scope.num = $scope.num + 1;
+			}
+			if($scope.true == false){
+				$scope.num = $scope.num - 1;
+			}
+		};
 	})
 	</script>
 </html>
