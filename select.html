@@ -30,6 +30,27 @@
 		<h3>型号是：{{s.model}}</h3>
 		<h3>颜色是：{{s.color}}</h3><br/><br/><br/>
 	</div>
+	<form>
+		请选择: 
+		<input type="radio" ng-model="var" value="one">one
+		<input type="radio" ng-model="var" value="two">two
+		<input type="radio" ng-model="var" value="three">three
+	</form>
+
+	<div ng-switch="var">
+		<div ng-switch-when="one">
+			<h1>one</h1>
+			<p>you are first</p>
+		</div>
+		<div ng-switch-when="two">
+			<h1>two</h1>
+			<p>you are second</p>
+		</div>
+		<div ng-switch-when="three">
+			<h1>three</h1>
+			<p>you are third</p>
+		</div>
+	</div>
 </body>
 	<script src="js/angular.js"></script>
 	<script type="text/javascript">
