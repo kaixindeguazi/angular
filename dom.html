@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Select</title>
+</head>
+<body>
+	<div ng-controller="hao">
+		<!-- 	ng-disabled 指令 -->
+		<button ng-disabled="myswitch">点我</button><br>
+		<input type="checkbox"  ng-model="myswitch">按钮<br>
+		<p>{{myswitch}}</p>
+
+		<!-- 	ng-show , ng-hide 指令 -->
+		<button ng-click="num = num + 1">加一</button>
+		<p>{{num}}</p>
+		<div style="float: left;">
+			<p ng-show="num>4">大于4可见</p>
+			<p ng-show="num>5">大于5可见</p>
+			<p ng-show="num>6">大于6可见</p>
+			<p ng-show="num>7">大于7可见</p>
+			<p ng-show="num>8">大于8可见</p>
+			<p ng-show="num>9">大于9可见</p>
+		</div>
+		<div style="float: left; margin-left: 50px;">
+			<p ng-hide="num>4">大于4不见</p>
+			<p ng-hide="num>5">大于5不见</p>
+			<p ng-hide="num>6">大于6不见</p>
+			<p ng-hide="num>7">大于7不见</p>
+			<p ng-hide="num>8">大于8不见</p>
+			<p ng-hide="num>9">大于9不见</p>
+		</div>
+	</div>
+
+
+</body>
+	<script src="js/angular.js"></script>
+	<script type="text/javascript">
+	var app = angular.module("myApp",[]);
+	app.controller('hao',function($scope,$http){
+		$scope.myswitch = true;
+		$scope.num = 5;
+	})
+	</script>
+</html>
